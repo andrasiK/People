@@ -20,13 +20,7 @@ namespace People
              */
             XmlDocument peopleXml = new XmlDocument();
             
-            if (peopleXml.ChildNodes.Count == 0)
-            {
-                string initialText = "<People></People>";
-                File.AppendAllText(filePath, initialText);
-                
-            }
-            FileStream inpFile = new FileStream(filePath, FileMode.Open);       // read file
+            FileStream inpFile = new FileStream(filePath, FileMode.Open);         // read file
             peopleXml.Load(inpFile);                                              //load file to XML
 
             XmlElement humanElement = peopleXml.CreateElement("Human");           //create new element with attribute
@@ -53,10 +47,10 @@ namespace People
             peopleFile.Load(inpFile);                                                         // load into xmldocument instance
             string[] loadedHuman = new string[3];
             XmlNodeList listFromNodes = peopleFile.GetElementsByTagName("Human");             // find out the number of elements available in xml file
-            for (int i = 0; i < listFromNodes.Count; i++)                                     //navigate through each and every node
+            for (int i = 0; i < listFromNodes.Count; i++)                                     // navigate through each and every node
             {
                 XmlElement hmn = (XmlElement)peopleFile.GetElementsByTagName("Human")[i];     // retrieve mode
-                                                                                              //  XmlElement hmnid = (XmlElement)peopleFile.GetElementsByTagName("ID")[i];
+                                                                                              // XmlElement hmnid = (XmlElement)peopleFile.GetElementsByTagName("ID")[i];
                 XmlElement hmnnm = (XmlElement)peopleFile.GetElementsByTagName("Name")[i];
                 XmlElement hmngndr = (XmlElement)peopleFile.GetElementsByTagName("Gender")[i];
 
